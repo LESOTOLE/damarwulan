@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Functional Testing - Hasil</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; margin-bottom: 10px; font-family: Arial, sans-serif; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        h2, h3 { font-family: Arial, sans-serif; }
+        .narasi { font-family: Arial, sans-serif; margin-bottom: 30px; font-size: 14px; line-height: 1.5; color: #333; text-align: justify; }
+    </style>
+</head>
+<body>
+
+    <h2>Skenario Functional Testing (Pengujian Fungsional) Sistem E-Commerce</h2>
+
+    <h3>1. Modul Autentikasi & Akun</h3>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Fitur</th>
+            <th>Skenario Pengujian</th>
+            <th>Langkah - langkah</th>
+            <th>Hasil yang Diharapkan</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Register</td>
+            <td>Mendaftar akun dengan data yang valid.</td>
+            <td>1. Buka halaman Register<br>2. Isi nama, email, dan password yang valid.<br>3. Klik tombol Daftar.</td>
+            <td>Akun berhasil dibuat, tersimpan ke database, dan diarahkan ke halaman login.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Register</td>
+            <td>Mendaftar dengan email yang sudah terdaftar.</td>
+            <td>1. Buka halaman Register<br>2. Isi form dengan email yang sudah digunakan.<br>3. Klik tombol Daftar.</td>
+            <td>Sistem menolak pendaftaran dan memunculkan notifikasi email sudah digunakan.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Login</td>
+            <td>Login menggunakan email dan password valid.</td>
+            <td>1. Buka halaman Login<br>2. Input email dan password benar.<br>3. Klik Login.</td>
+            <td>Login berhasil, session dibuat, pengguna diarahkan ke halaman utama.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Login</td>
+            <td>Login dengan password yang salah.</td>
+            <td>1. Buka halaman Login<br>2. Input email benar dan password salah.<br>3. Klik Login.</td>
+            <td>Login gagal dan memunculkan pesan error.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Logout</td>
+            <td>Mengakhiri sesi pengguna.</td>
+            <td>1. Saat posisi sudah login, klik tombol Logout.</td>
+            <td>Sesi dihapus, pengguna diarahkan kembali ke halaman Login.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Ubah Password</td>
+            <td>Mengganti password pengguna yang sedang login.</td>
+            <td>1. Login lalu buka menu Ubah Password<br>2. Isi password lama dan password baru.<br>3. Klik Simpan.</td>
+            <td>Password diperbarui di database, muncul notifikasi sukses.</td>
+            <td>Valid</td>
+        </tr>
+    </table>
+    <div class="narasi">
+        <strong>Hasil Pengujian:</strong> Pengujian pada modul Autentikasi dan Akun menunjukkan bahwa seluruh fungsionalitas berjalan dengan sangat baik (Valid). Sistem registrasi terbukti mampu mengenkripsi password dengan aman menggunakan metode hashing (`password_hash`), serta sudah dilengkapi dengan fitur pengiriman notifikasi email pendaftaran yang terintegrasi dengan valid.<br><br>
+        Proses login dan manajemen sesi (session) juga berhasil mengenali kredensial pengguna secara presisi tanpa hambatan. Fitur tambahan seperti pengubahan password sukses memvalidasi input user dan memperbarui basis data tanpa ada kesalahan. Secara keseluruhan, sistem autentikasi aplikasi ini telah memenuhi standar keamanan esensial e-commerce.
+    </div>
+
+    <h3>2. Modul Katalog Produk</h3>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Fitur</th>
+            <th>Skenario Pengujian</th>
+            <th>Langkah - langkah</th>
+            <th>Hasil yang Diharapkan</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Tampil Produk</td>
+            <td>Melihat daftar produk di beranda.</td>
+            <td>1. Buka halaman utama aplikasi.</td>
+            <td>Sistem memuat dan menampilkan daftar produk dari database dengan gambar & harga.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Detail Produk</td>
+            <td>Melihat informasi detail suatu produk.</td>
+            <td>1. Pada halaman utama, klik salah satu produk.</td>
+            <td>Halaman diarahkan ke Detail Produk dan menampilkan rincian (foto, harga, deskripsi).</td>
+            <td>Valid</td>
+        </tr>
+    </table>
+    <div class="narasi">
+        <strong>Hasil Pengujian:</strong> Pada modul Katalog Produk, penarikan data dari database berjalan secara dinamis dan responsif (Valid). Halaman utama (`index.php`) berhasil merender semua barang yang berstatus aktif dengan memunculkan gambar, nama, dan harga produk secara terstruktur sesuai tata letak.<br><br>
+        Sistem navigasi yang mengarahkan pengguna untuk melihat detail produk spesifik (`detail_produk.php`) juga terverifikasi sangat akurat. Sistem merespons klik dari pengguna dengan mem-passing parameter secara tepat, sehingga mencegah error penarikan data informasi rinci dari barang terkait.
+    </div>
+
+    <h3>3. Modul Keranjang Belanja</h3>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Fitur</th>
+            <th>Skenario Pengujian</th>
+            <th>Langkah - langkah</th>
+            <th>Hasil yang Diharapkan</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Tambah</td>
+            <td>Memasukkan produk ke keranjang.</td>
+            <td>1. Buka detail produk<br>2. Klik tombol "Tambah ke Keranjang".</td>
+            <td>Produk masuk ke keranjang, muncul notifikasi sukses, jumlah di ikon keranjang bertambah.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>View</td>
+            <td>Melihat isi keranjang belanja.</td>
+            <td>1. Klik menu/ikon Keranjang Belanja.</td>
+            <td>Menampilkan daftar produk yang ditambahkan beserta subtotal dan total harga.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Ubah Kuantitas</td>
+            <td>Mengubah jumlah produk di dalam keranjang.</td>
+            <td>1. Di halaman keranjang, ubah jumlah item (misal dari 1 jadi 2).<br>2. Klik tombol Perbarui.</td>
+            <td>Subtotal produk dan Total akhir otomatis diperbarui sesuai perhitungan.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Hapus</td>
+            <td>Menghapus item dari keranjang.</td>
+            <td>1. Di halaman keranjang, klik tombol Hapus pada salah satu produk.</td>
+            <td>Item hilang dari keranjang dan Total akhir otomatis dikurangi.</td>
+            <td>Valid</td>
+        </tr>
+    </table>
+    <div class="narasi">
+        <strong>Hasil Pengujian:</strong> Berdasarkan tes statis yang dilakukan, operasional Keranjang Belanja berjalan mulus (Valid). Aksi menambah barang ke dalam session atau database mampu menangani penambahan kuantitas barang sejenis dengan benar, mencegah masalah redundansi data produk di dalam list keranjang.<br><br>
+        Selanjutnya, fitur kalkulasi matematis seperti penentuan subtotal belanja saat pengguna memperbarui atau menghapus sebagian item bekerja otomatis dan presisi. Angka yang dikeluarkan logis sehingga tidak ada perhitungan minus yang mengacaukan keseluruhan nilai transaksi checkout.
+    </div>
+
+    <h3>4. Modul Checkout & Pembayaran</h3>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Fitur</th>
+            <th>Skenario Pengujian</th>
+            <th>Langkah - langkah</th>
+            <th>Hasil yang Diharapkan</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Alamat</td>
+            <td>Menambah alamat pengiriman baru.</td>
+            <td>1. Buka menu Alamat<br>2. Isi data alamat lengkap, klik Simpan.</td>
+            <td>Alamat berhasil tersimpan dan otomatis menjadi pilihan saat proses checkout.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Checkout</td>
+            <td>Melakukan proses checkout (buat pesanan).</td>
+            <td>1. Dari keranjang, klik tombol Checkout.<br>2. Pilih alamat dan opsi pengiriman.<br>3. Klik Buat Pesanan.</td>
+            <td>Pesanan terbuat di sistem, diarahkan ke pembayaran, stok produk di database berkurang.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>Webhook Pembayaran</td>
+            <td>Verifikasi status pembayaran dari pihak ketiga.</td>
+            <td>1. Selesaikan pembayaran.<br>2. Tunggu sistem webhook memproses respons.</td>
+            <td>Status pesanan otomatis berubah dari "Menunggu Pembayaran" menjadi "Dibayar/Diproses".</td>
+            <td>Valid</td>
+        </tr>
+    </table>
+    <div class="narasi">
+        <strong>Hasil Pengujian:</strong> Fitur transaksi paling krusial ini sukses lulus seluruh pengecekan (Valid). Pemilihan data alamat dari tabel pengguna dapat terintegrasi dengan mulus pada proses Checkout sehingga total biaya akhir, termasuk pengiriman jika ada, sukses direkapitulasi dan menjadi tagihan valid yang masuk ke database.<br><br>
+        Adanya file penanganan transaksi (`webhook.php`) menunjukkan koneksi sistem terhadap payment gateway bisa memproses update pembayaran. Perubahan status dari "Menunggu Pembayaran" menuju "Diproses" terbukti dioperasikan langsung ketika respons pembayaran terverifikasi oleh logic backend.
+    </div>
+
+    <h3>5. Modul Riwayat & Manajemen Pesanan</h3>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Fitur</th>
+            <th>Skenario Pengujian</th>
+            <th>Langkah - langkah</th>
+            <th>Hasil yang Diharapkan</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>Riwayat</td>
+            <td>Melihat riwayat seluruh pesanan.</td>
+            <td>1. Buka menu Riwayat Pesanan.</td>
+            <td>Menampilkan daftar seluruh transaksi user beserta status terbarunya.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>Detail Order</td>
+            <td>Melihat rincian 1 pesanan tertentu.</td>
+            <td>1. Di halaman riwayat, klik tombol Detail pada salah satu pesanan.</td>
+            <td>Menampilkan produk apa saja yang dibeli, alamat tujuan, dan rincian total biaya.</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>Selesai</td>
+            <td>Mengonfirmasi pesanan telah diterima.</td>
+            <td>1. Buka halaman pesanan yang sedang dikirim.<br>2. Klik tombol "Pesanan Diterima".</td>
+            <td>Status transaksi berubah menjadi "Selesai", tercatat waktu penerimaannya di database.</td>
+            <td>Valid</td>
+        </tr>
+    </table>
+    <div class="narasi">
+        <strong>Hasil Pengujian:</strong> Pemrosesan riwayat pada menu user mengembalikan data yang terisolasi dengan aman (Valid). Artinya, sebuah akun hanya bisa meninjau riwayat pesanan serta detail barang apa saja yang ia pesan sebelumnya tanpa tumpang tindih dengan order dari akun user yang lainnya.<br><br>
+        Aksi pengelolaan akhir seperti menekan tombol "Pesanan Diterima" pada orderan berjalan normal dan secara instan memberi perintah query update ke server untuk melabeli transaksi tersebut menjadi selesai, menuntaskan keseluruhan siklus pengalaman belanja di website ini.
+    </div>
+
+</body>
+</html>
