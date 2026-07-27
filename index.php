@@ -19,7 +19,7 @@ $query_produk = mysqli_query($conn, $sql_produk);
 include 'includes/header.php';
 include 'includes/navbar.php';
 ?>
-
+<meta name="google-site-verification" content="d-2xkANSePIER695Jf7RqBKrn39Zqqr0SgL9Me8qVU0" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 <style>
