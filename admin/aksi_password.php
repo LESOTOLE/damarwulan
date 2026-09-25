@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hash_baru = password_hash($pass_baru, PASSWORD_DEFAULT);
 
     // Update database
-    $update = mysqli_query($conn, "UPDATE pengguna SET password = '$hash_baru' WHERE id_pengguna = '$id_user'");
+    $update = mysqli_query($conn, "UPDATE pengguna SET kata_sandi = '$hash_baru' WHERE id_pengguna = '$id_user'");
 
     if ($update) {
         // Berhasil, arahkan balik dengan status sukses

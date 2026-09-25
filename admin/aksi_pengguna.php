@@ -20,7 +20,7 @@ if (isset($_POST['tambah'])) {
     $id_peran = $_POST['id_peran'];
     $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    mysqli_query($conn, "INSERT INTO pengguna (nama, email, password, id_peran) VALUES ('$nama', '$email', '$pass', '$id_peran')");
+    mysqli_query($conn, "INSERT INTO pengguna (nama, email, kata_sandi, id_peran) VALUES ('$nama', '$email', '$pass', '$id_peran')");
     header("Location: pengguna.php?status=sukses");
 }
 
@@ -33,7 +33,7 @@ if (isset($_POST['edit'])) {
 
     if (!empty($_POST['password'])) {
         $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $sql = "UPDATE pengguna SET nama='$nama', email='$email', password='$pass', id_peran='$id_peran' WHERE id_pengguna='$id'";
+        $sql = "UPDATE pengguna SET nama='$nama', email='$email', kata_sandi='$pass', id_peran='$id_peran' WHERE id_pengguna='$id'";
     } else {
         $sql = "UPDATE pengguna SET nama='$nama', email='$email', id_peran='$id_peran' WHERE id_pengguna='$id'";
     }

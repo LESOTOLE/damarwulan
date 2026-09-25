@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['id_pengguna'])) {
     $hash = password_hash($pass_baru, PASSWORD_DEFAULT);
 
     // Update ke database
-    $sql = "UPDATE pengguna SET password = '$hash' WHERE id_pengguna = '$id_user'";
+    $sql = "UPDATE pengguna SET kata_sandi = '$hash' WHERE id_pengguna = '$id_user'";
     $query = mysqli_query($conn, $sql);
 
     if ($query) {

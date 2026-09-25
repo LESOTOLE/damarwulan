@@ -216,6 +216,7 @@ $data_grafik_json = json_encode($data_grafik);
                             <option value="produk">1. Laporan Rincian Produk Terjual</option>
                             <option value="area">2. Laporan Pengiriman Berdasarkan Area</option>
                             <option value="kategori">3. Laporan Kinerja Penjualan per Kategori</option>
+                            <option value="status_pesanan">4. Laporan Detail Status Pesanan Pelanggan</option>
                         </select>
                     </div>
 

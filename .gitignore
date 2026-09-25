@@ -1,4 +1,30 @@
+# Dependencies
 /vendor/
-/damar.rar
-/webhook.log
+
+# Archives & Backups
+*.rar
+*.zip
+*.tar.gz
+*.7z
+*.bak
+
+# Logs
+*.log
+webhook.log
+
+# Environment & Local Configurations
+.env
+.env.*
+!.env.example
+
+# Operating System & Editor Files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Tooling
 /.superpowers/
